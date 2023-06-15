@@ -7,12 +7,16 @@ readme = "README.md"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/laysakura/trie-rs"
 homepage = "https://github.com/laysakura/trie-rs"
-keywords = ["trie", "louds", "succinct"] # up to 5 keywords, each keyword should have <= 20 chars
+keywords = [
+  "trie",
+  "louds",
+  "succinct",
+] # up to 5 keywords, each keyword should have <= 20 chars
 categories = ["compression", "data-structures"]
 edition = "2018"
 
 [dependencies]
-louds-rs = "0.4"
+louds-rs = { git = "https://github.com/ypenglyn/louds-rs.git", branch = "test" }
 
 [dev-dependencies]
 criterion = "0.2"
@@ -25,5 +29,8 @@ harness = false
 
 [package.metadata.release]
 tag-prefix = "v"
-pre-release-hook = ["emacs", "CHANGELOG.md"]  # Finally, I found this hook so effective!!
+pre-release-hook = [
+  "emacs",
+  "CHANGELOG.md",
+] # Finally, I found this hook so effective!!
 disable-publish = true

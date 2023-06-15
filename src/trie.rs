@@ -4,6 +4,7 @@ use louds_rs::Louds;
 pub mod trie;
 pub mod trie_builder;
 
+#[derive(Clone, Debug)]
 pub struct Trie<Label> {
     louds: Louds,
 
@@ -15,6 +16,7 @@ pub struct TrieBuilder<Label> {
     naive_trie: NaiveTrie<Label>,
 }
 
+#[derive(Clone, Debug)]
 struct TrieLabel<Label> {
     label: Label,
     is_terminal: bool,
