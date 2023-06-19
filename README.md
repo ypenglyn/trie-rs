@@ -1,21 +1,7 @@
 # trie-rs
 
 Memory efficient trie (prefix tree) library based on LOUDS.
-
-[Master API Docs](https://laysakura.github.io/trie-rs/trie_rs/)
-|
-[Released API Docs](https://docs.rs/crate/trie-rs)
-|
-[Benchmark Results](https://laysakura.github.io/trie-rs/criterion/report/)
-|
-[Changelog](https://github.com/laysakura/trie-rs/blob/master/CHANGELOG.md)
-
-[![Build Status](https://travis-ci.com/laysakura/trie-rs.svg?branch=master)](https://travis-ci.com/laysakura/trie-rs)
-[![Crates.io Version](https://img.shields.io/crates/v/trie-rs.svg)](https://crates.io/crates/trie-rs)
-[![Crates.io Downloads](https://img.shields.io/crates/d/trie-rs.svg)](https://crates.io/crates/trie-rs)
-[![Minimum rustc version](https://img.shields.io/badge/rustc-1.33+-lightgray.svg)](https://github.com/laysakura/trie-rs#rust-version-supports)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/laysakura/trie-rs/blob/master/LICENSE-MIT)
-[![License: Apache 2.0](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](https://github.com/laysakura/trie-rs/blob/master/LICENSE-APACHE)
+Note: this is a porting of original repo from https://github.com/laysakura/trie-rs under the MIT license.
 
 ## Quickstart
 
@@ -164,24 +150,6 @@ assert_eq!(
     vec![[1, 4, 1, 5, 9, 2, 6, 5, 3, 5]],
 );
 ```
-
-## Features
-- **Generic type support**: As the above examples show, trie-rs can be used for searching not only UTF-8 string but also other data types.
-- **Based on [louds-rs](https://crates.io/crates/louds-rs)**, which is fast, parallelized, and memory efficient.
-- **Latest benchmark results are always accessible**: trie-rs is continuously benchmarked in Travis CI using [Criterion.rs](https://crates.io/crates/criterion). Graphical benchmark results are published [here](https://laysakura.github.io/trie-rs/criterion/report/).
-
-## Acknowledgments
-[`edict.furigana`](https://github.com/laysakura/trie-rs/blob/master/benches/edict.furigana) is used for benchmark.
-This file is constructed in the following step:
-
-1. Download `edict.gz` from [EDICT](http://www.edrdg.org/jmdict/edict.html).
-2. Convert it from original EUC into UTF-8.
-3. Translate it into CSV file with [edict-to-csv](https://pypi.org/project/edict-to-csv/).
-4. Extract field $1 for Hiragana/Katakana words, and field $3 for other (like Kanji) words.
-5. Translate Katakana into Hiragana with [kana2hira](https://github.com/ShellShoccar-jpn/misc-tools/blob/master/kata2hira).
-
-Many thanks for these dictionaries and tools.
-
 ## Versions
 trie-rs uses [semantic versioning](http://semver.org/spec/v2.0.0.html).
 
@@ -197,18 +165,3 @@ trie-rs is continuously tested with these Rust versions in Travis CI:
 So it expectedly works with Rust 1.33.0 and any newer versions.
 
 Older versions may also work, but are not tested or guaranteed.
-
-## Contributing
-
-Any kind of pull requests are appreciated.
-
-### Guidelines
-
-- `README.md` is generated from `$ cargo readme` command. Do not manually update `README.md` but edit `src/lib.rs` and then `$ cargo readme > README.md`.
-- Travis CI automatically does the following commit & push to your pull-requests:
-    - `$ cargo readme > README.md`
-    - `$ cargo fmt --all`
-
-## License
-
-MIT OR Apache-2.0

@@ -1,5 +1,6 @@
+use crate::LoudsNodeNum;
+
 use super::Trie;
-use louds_rs::LoudsNodeNum;
 
 impl<Label: Ord + Clone> Trie<Label> {
     pub fn exact_match<Arr: AsRef<[Label]>>(&self, query: Arr) -> bool {
